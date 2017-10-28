@@ -8,10 +8,6 @@ int main(){
 
 	std::cin >> N;
 
-	if(N == 0){
-		break;
-	}
-	
 	for(int i = 0; i < N; ++i){
 		int input;
 		std::cin >> input;
@@ -24,13 +20,14 @@ int main(){
 		}
 	}
 
+	std::sort(taro.begin(), taro.end());
+	std::sort(hanako.begin(), hanako.end());
+
 	bool is_taros_turn = true;
 	while(!taro.empty() && !hanako.empty()){
 		int card = 0;
 
 		while(true){
-			std::sort(taro.begin(), taro.end());
-			std::sort(hanako.begin(), hanako.end());
 			if(is_taros_turn){
 				is_taros_turn = false;
 				auto itr = taro.begin();
@@ -43,7 +40,6 @@ int main(){
 				}
 				
 				if(flag){
-					card = 0;
 					break;
 				}
 				
@@ -65,7 +61,6 @@ int main(){
 				}
 				
 				if(flag){
-					card = 0;
 					break;
 				}
 
